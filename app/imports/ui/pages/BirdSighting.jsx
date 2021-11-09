@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Image } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image, Menu } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -46,24 +46,22 @@ class BirdSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Bird Sighting Form</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <TextField name='name'/>
-              <TextField name='phone' decimal={false}/>
-              <TextField name='location'/>
-              <TextField name='description'/>
-              <TextField name='markers'/>
-              <TextField name='behavior'/>
-              <SelectField name='numPeople'/>
-              <SubmitField value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <Menu className='sealsighting' >
+        <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+          <Segment>
+            <Header as="h2" textAlign="center">Seal Sighting Form</Header>
+            <TextField name='name'/>
+            <TextField name='phone' decimal={false}/>
+            <TextField name='location'/>
+            <TextField name='description'/>
+            <TextField name='markers'/>
+            <TextField name='behavior'/>
+            <SelectField name='numPeople'/>
+            <SubmitField value='Submit'/>
+            <ErrorsField/>
+          </Segment>
+        </AutoForm>
+      </Menu>
     );
   }
 }

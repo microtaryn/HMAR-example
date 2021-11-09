@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Image } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image, Menu } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -9,7 +9,6 @@ import { Stuffs } from '../../api/stuff/Stuff';
 
 const bleach = 'https://kauaiseals.files.wordpress.com/2017/05/v76thomton.jpg?w=584';
 const tags = 'http://www.smru.st-andrews.ac.uk/files/2021/05/flipper_tag_eg.png';
-
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -50,30 +49,24 @@ class SealSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Seal Sighting Form</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <TextField name='name'/>
-              <TextField name='phone' decimal={false}/>
-              <TextField name='location'/>
-              <TextField name='description'/>
-              <Grid.Row>
-                <Image src={bleach} size="middle" centered/>
-              </Grid.Row>
-              <Grid.Row>
-                <Image src={tags} size="middle" centered/>
-              </Grid.Row>
-              <TextField name='markers'/>
-              <TextField name='behavior'/>
-              <SelectField name='numPeople'/>
-              <SubmitField value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <Menu className='sealsighting'>
+        <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+          <Segment>
+            <Header as="h2" textAlign="center">Seal Sighting Form</Header>
+            <TextField name='name'/>
+            <TextField name='phone' decimal={false}/>
+            <TextField name='location'/>
+            <TextField name='description'/>
+            <Image src={bleach} size="middle" centered />
+            <Image src={tags} size="middle" centered/>
+            <TextField name='markers'/>
+            <TextField name='behavior'/>
+            <SelectField name='numPeople'/>
+            <SubmitField value='Submit'/>
+            <ErrorsField/>
+          </Segment>
+        </AutoForm>
+      </Menu>
     );
   }
 }

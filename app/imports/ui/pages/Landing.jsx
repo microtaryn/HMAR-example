@@ -10,11 +10,11 @@ class Landing extends React.Component {
       <Container fluid verticleAlign='middle'>
         <Grid id='landing-page' verticleAlign='middle' className='center aligned'>
           <Grid.Column width={14}>
-            <h3 className="intro">Welcome to the HMAR Reporting app</h3>
-            <p>Select an option from below:</p>
+            <h2 className="intro">Welcome to the HMAR Reporting app</h2>
+            <h3>Select an option from below:</h3>
             <Button as={NavLink} className="distressButton" exact to="/distress" color='red'>Animal in distress</Button>
             <Image src='https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png' size='small' centered className="logo"/>
-            <Button as={NavLink} className="sightingButton" exact to="/sighting" color='blue'>Animal sighting</Button>
+            <Button as={NavLink} className="sightingButton" exact to="/sighting" color='green'>Animal sighting</Button>
             <p className="clickHere">Don&apos;t know what an animal in distress looks like?</p>
             <Button as={NavLink} className="infoButton" exact to="/infodistress">Click here</Button>
           </Grid.Column>

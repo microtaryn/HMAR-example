@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class InfoDistress extends React.Component {
   render() {
     return (
-      <Container id='landing-page'>
+      <Container >
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
             <Header as="h1">Don&apos;t know what an animal in distress looks like?</Header>
@@ -14,12 +14,12 @@ class InfoDistress extends React.Component {
         </Grid>
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
-            <Button secondary inverted><Link to="/sealsighting">Seal</Link></Button>
-            <Button secondary inverted><Link to="/turtlesighting">Turtle</Link></Button>
+            <Button><Link to="/sealsighting">Seal</Link></Button>
+            <Button><Link to="/turtlesighting">Turtle</Link></Button>
           </Grid.Column>
           <Grid.Row>
-            <Button secondary inverted><Link to="/birdsighting">Bird</Link></Button>
-            <Button secondary inverted><Link to="/other">Other</Link></Button>
+            <Button ><Link to="/birdsighting">Bird</Link></Button>
+            <Button ><Link to="/other">Other</Link></Button>
           </Grid.Row>
         </Grid>
       </Container>

@@ -9,9 +9,9 @@ import { Menu, Image, Header } from 'semantic-ui-react';
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu color='blue' attached="top" borderless>
+      <Menu color='blue' attached="top" borderless className="nav">
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Image src="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" size='mini'/>
+          <Image src="https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png" size='tiny'/>
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="/distress">
           <Header as="h4">Distress</Header>

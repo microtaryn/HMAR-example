@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Image } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image, Menu } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -49,34 +49,25 @@ class TurtleSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Turtle Sighting Form</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <Header textAlign='center'> Contact Info</Header>
-              <TextField name='name'/>
-              <TextField name='phone' decimal={false}/>
-              <Header textAlign='center'> Sighting Info</Header>
-              <TextField name='location'/>
-              <TextField name='description' placeholder='ex. beach name, building near by, statues near by'/>
-              <Grid.Row>
-                <Image src={satellite} size="middle" centered/>
-                <Header textAlign='center'>Satellite</Header>
-              </Grid.Row>
-              <Grid.Row>
-                <Image src={tags} size="middle" centered/>
-                <Header textAlign='center'>Tag</Header>
-              </Grid.Row>
-              <TextField name='markers' placeholder='ex. tags, satellite'/>
-              <TextField name='behavior' placeholder='ex. sleeping, eating'/>
-              <SelectField name='numPeople'/>
-              <SubmitField value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <Menu className='turtlesighting'>
+        <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+          <Segment>
+            <Header as="h2" textAlign="center">Seal Sighting Form</Header>
+            <TextField name='name'/>
+            <TextField name='phone' decimal={false}/>
+            <TextField name='location'/>
+            <TextField name='description'/>
+            <Image src={satellite} size="middle" centered />
+            <Image src={tags} size="middle" centered/>
+            <TextField name='markers'/>
+            <TextField name='behavior'/>
+            <SelectField name='numPeople'/>
+            <SubmitField value='Submit'/>
+            <ErrorsField/>
+          </Segment>
+        </AutoForm>
+      </Menu>
+
     );
   }
 }
